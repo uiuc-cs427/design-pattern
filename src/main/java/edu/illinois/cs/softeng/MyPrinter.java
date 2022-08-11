@@ -19,10 +19,15 @@ import org.jsoup.select.NodeVisitor;
  */
 public class MyPrinter
 {
+	/**
+	 * Just another entry point for playing with the program 
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		String html = "<html><body><ul><li>xx</li></ul></body></html>";
 		Document doc = Jsoup.parse(html); // get initial HTML document
-		MyPrinter printer = new MyPrinter(); //
+		MyPrinter printer = new MyPrinter(); 
 		String output = printer.prettyPrint(doc);
 		System.out.println(output);
 	}
