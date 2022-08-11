@@ -26,7 +26,7 @@ public class MyPrinterTest
 	public void test1() throws IOException, URISyntaxException {
 		String html = "<html><body><ul><li>xx</li></ul></body></html>";
 		Document doc = Jsoup.parse(html); // get initial HTML document
-		MyPrinter printer = new MyPrinter(); //
+		MyPrinter printer = new MyPrinter(); 
 		String output = printer.prettyPrint(doc);
 		assertEquals(
 				"The output file differs from the expected one: src/test/resources/htmltests/output1.html!",
@@ -36,24 +36,24 @@ public class MyPrinterTest
 	
 	@Test
 	public void test2() throws IOException, URISyntaxException {
-		String html = "<html><body><ul><li></li><li><a href=\"http://a.b\"></a></li></ul><p></p></body></html>";
+		String html = "<html><body><!--p>hello</p--><ul><li></li></ul></body></html>";
 		Document doc = Jsoup.parse(html); // get initial HTML document
-		MyPrinter printer = new MyPrinter(); //
+		MyPrinter printer = new MyPrinter(); 
 		String output = printer.prettyPrint(doc);
 		assertEquals(
-				"The output file differs from the expected one: src/test/resources/htmltests/output1.html!",
+				"The output file differs from the expected one: src/test/resources/htmltests/output2.html!",
 				FileUtils.readFileToString(
 						getFileFromResource("htmltests/output2.html"), "utf-8"), output);
 	}
 	
 	@Test
 	public void test3() throws IOException, URISyntaxException {
-		String html = "<html><body><!--p>hello</p--><ul><li><a href=\"http://a.b\">link</a></li></ul><p>xx</p></body></html>";
+		String html = "<html><body><!--p>hello</p--><ul><li><a href=\"http://www.google.com\">Google</a></li></ul><p>xx</p></body></html>";
 		Document doc = Jsoup.parse(html); // get initial HTML document
-		MyPrinter printer = new MyPrinter(); //
+		MyPrinter printer = new MyPrinter(); 
 		String output = printer.prettyPrint(doc);
 		assertEquals(
-				"The output file differs from the expected one: src/test/resources/htmltests/output1.html!",
+				"The output file differs from the expected one: src/test/resources/htmltests/output3.html!",
 				FileUtils.readFileToString(
 						getFileFromResource("htmltests/output3.html"), "utf-8"), output);
 	}

@@ -16,7 +16,6 @@ public class MyNodeVisitor implements NodeVisitor
 
 	// hit when the node is first seen
 	public void head(Node node, int depth) {
-		// System.out.println(node.nodeName()+"=="+depth);
 		String name = node.nodeName();
 		if (node instanceof TextNode) {
 			// TextNodes carry all user-readable text in the DOM.
